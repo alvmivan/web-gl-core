@@ -336,9 +336,10 @@ async function loadMaterials(materialsData, gl, sceneData)
 
 
 
-
+// usar esto editando local: 
 //const resourcesLocation = '../../resources/';
-//const resourcesLocation = 'https://github.com/alvmivan/web-gl-core/resources/';
+
+//usar esto para que corra en github pages
 const resourcesLocation = '../../web-gl-core/resources/';
 
 async function resourcesLoad(path, isJson = true)
