@@ -2,7 +2,7 @@ import { Camera } from "./Camera.js";
 import { MeshRenderer } from "./MeshRenderer.js";
 import { mat4 , glMatrix, quat, vec3} from "../gl-matrix/index.js";
 import { rotateVector, clamp } from "../maths.js"
-import { AND, CompositeRenderer } from "./CompositeRenderer.js";
+//import { AND, CompositeRenderer } from "./CompositeRenderer.js";
 import { Transform } from "./Transform.js";
 
 
@@ -90,23 +90,23 @@ export class ForwardRender
         let vao = renderer.vao;
         let renderMode = renderer.renderMode;
 
-        if(renderer.rendererType == AND)
-        {
-            /** @type {CompositeRenderer} */
-            let compo = renderer;       
-            for (let i = 0 ; i<compo.renderers.length ; i++)
-            {
-                count = compo.renderers[i].count;
-                material = compo.renderers[i].material;
-                vao = compo.renderers[i].vao;
-                renderMode = compo.renderers[i].renderMode;
-                this._internalRender(material, localMatrix, normalMatrix, vao, renderMode, count);
-            }
-        }
-        else
-        {
+        //if(renderer.rendererType == AND)
+        //{
+        //    /** @type {CompositeRenderer} */
+        //    let compo = renderer;       
+        //    for (let i = 0 ; i<compo.renderers.length ; i++)
+        //    {
+        //        count = compo.renderers[i].count;
+        //        material = compo.renderers[i].material;
+        //        vao = compo.renderers[i].vao;
+        //        renderMode = compo.renderers[i].renderMode;
+        //        this._internalRender(material, localMatrix, normalMatrix, vao, renderMode, count);
+        //    }
+        //}
+        //else
+        //{
             this._internalRender(material, localMatrix, normalMatrix, vao, renderMode, count); // limpio el binder
-        }
+        //}
 
         
     }

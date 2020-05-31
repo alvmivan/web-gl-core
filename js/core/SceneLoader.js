@@ -3,10 +3,10 @@ import { shaders } from "./Pools.js"
 import { Material } from "./Material.js"
 import { ObjParser } from "./ObjParser.js"
 import { MeshRenderer } from "./MeshRenderer.js"
-import { WireframeRenderer } from "./WireframeRenderer.js"
+
 import {createProgram, createShader } from "../utils.js"
 import { getScript } from "../scripts/scripts.js"
-import { CompositeRenderer, AND } from "./CompositeRenderer.js"
+
 
 /*
     Responsabilidad : cargar la escena
