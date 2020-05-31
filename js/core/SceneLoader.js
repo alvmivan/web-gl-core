@@ -337,7 +337,8 @@ async function loadMaterials(materialsData, gl, sceneData)
 
 
 
-const resourcesLocation = '../../resources/';
+//const resourcesLocation = '../../resources/';
+const resourcesLocation = 'https://github.com/alvmivan/web-gl-core/resources/';
 
 async function resourcesLoad(path, isJson = true)
 {    
