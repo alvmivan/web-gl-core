@@ -1,9 +1,14 @@
+/**
+ * define la estructura del json de un .material
+ */
 interface BaseMaterialModel
 {
     /**
      * Nombre del material, se puede usar como una key para obtener el template del material
+     * tiene que matchear (ignore case) con el nombre del archivo (sin la extension)
+     * @default nombre del archivo sin el ".material" 
      */
-    name : string;
+    name : string | undefined;
     /**
      * el path al fragment shader
      * @example "shaders/myAwesomeFragmentShader.glsl"
@@ -41,6 +46,7 @@ interface BaseMaterialModel
     normalMatrixName: string;
     /**
      * el normbre del attribute de la vertexnormal en el shader
+     * @example "normal"
      */
     normalName: string;
 }
