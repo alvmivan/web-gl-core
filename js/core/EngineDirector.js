@@ -42,12 +42,12 @@ export class EngineDirector
 
         
 
-        // to test gizmos : 
-
-        let gizmosData = await loadPrefab(gl, "gizmos.json");
-
-        this.loop.add(gizmosData.entities);
-
+       // // to test gizmos : 
+//
+       // let gizmosData = await loadPrefab(gl, "gizmos.json");
+//
+       // this.loop.add(gizmosData.entities);
+//
         console.log(" --- Loading Completed --- ")
 
     }
