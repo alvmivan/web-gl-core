@@ -1,0 +1,10 @@
+{
+    "fragmentPath" : "fPBR",
+    "vertexPath" : "vPBR",
+    "modelMatrixName" :  "modelMatrix",
+    "viewMatrixName" : "viewMatrix",
+    "projectionMatrixName" : "projectionMatrix",
+    "vertexPositionName" : "vertexPosition",
+    "normalMatrixName" : "normalMatrix",
+    "normalName" : "normal"
+}
