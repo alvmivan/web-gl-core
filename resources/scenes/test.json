@@ -1,35 +1,30 @@
 {
-    "objects" :
+    "camera" :
+    {
+        "transform" : 
+        {
+            "position" : [0,1,-10]
+        },
+        "fov" : 45
+    },
+
+    "entities" :
     [
         {
             "name" : "center",
             "geometry" : "objs/robot.obj" ,
-            "materialInstance" : 
+            "material" : 
             {
-                "materialIndex" : 0,
+                "name" : "default",
                 "uniforms" : 
                 [
                     {
-                        "type" : "uniform3fv",
                         "name" : "color",
-                        "value" : [0.8,0.5,0.4]
+                        "initialValue" : [0.8,0.5,0.4],
+                        "uniformType" : 3
                     }
                 ] 
             }          
-        }
-    ]
-    ,
-    "materials" : 
-    [        
-        {
-            "fragmentPath" : "shaders/fragNormal.glsl",
-            "vertexPath" : "shaders/showNormal.glsl",
-            "modelMatrixName" :  "modelMatrix",
-            "viewMatrixName" : "viewMatrix",
-            "projectionMatrixName" : "projectionMatrix",
-            "vertexPositionName" : "vertexPosition",
-            "normalMatrixName" : "normalMatrix",
-            "normalName" : "normal"
         }
     ]
 }

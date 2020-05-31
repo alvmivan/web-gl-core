@@ -1,5 +1,5 @@
+import { glMatrix, mat4 } from "../gl-matrix/index.js";
 import { Transform } from "./Transform.js";
-import { mat4, glMatrix } from "../gl-matrix/index.js";
 
 
 const X = 0;
@@ -11,10 +11,13 @@ const Z = 2;
 export class Camera
 {
     transform = new Transform();
-    far = 1000;
-    near = 0.01;
-    fov = 60;
-    
+
+    // si le hacemos property setter a alguno de estos 4, recordar llamar a recalculateProjectionMatrix
+    _far;   
+    _near;  
+    _fov;    
+    _aspect; 
+
     _projectionMatrix;
     _viewMatrix;
 
@@ -24,10 +27,33 @@ export class Camera
      */
     constructor(aspect)
     {
-        this.aspect = aspect;
-        
+        this._aspect = aspect;        
         this._viewMatrix = mat4.create();
         this._projectionMatrix = mat4.create();
+        this.recalculateProjection();
+    }
+
+    /**
+     * @param {number} value
+     */
+    set aspect(value)
+    {
+        if(Math.abs(this._aspect - value) > 0.00001)
+        {
+            this._aspect = value;
+            this.recalculateProjection();
+        }        
+    }
+    /**
+     * @param {number} value
+     */
+    set fov(value)
+    {
+        if(Math.abs(this._fov - value) > 0.00001)
+        {
+            this._fov = value;
+            this.recalculateProjection();
+        }        
     }
 
     get viewMatrix()
@@ -43,9 +69,13 @@ export class Camera
 
     get projectionMatrix()
     {
-        let fov = glMatrix.toRadian(this.fov);        
-        mat4.perspective(this._projectionMatrix, fov, this.aspect, this.near, this.far)
         return this._projectionMatrix;
     }
 
+
+    recalculateProjection() 
+    {
+        let radFOV = glMatrix.toRadian(this._fov);
+        mat4.perspective(this._projectionMatrix, radFOV, this._aspect, this._near, this._far);
+    }
 }

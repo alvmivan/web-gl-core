@@ -1,7 +1,7 @@
 /**
  * define la estructura del json de un .material
  */
-interface BaseMaterialModel
+export interface BaseMaterialModel
 {
     /**
      * Nombre del material, se puede usar como una key para obtener el template del material

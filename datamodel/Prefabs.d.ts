@@ -1,17 +1,17 @@
 /**
  * define la estructura del json de un *.prefab
  */
-interface PrefabModule
+export interface PrefabModule
 {
+    camera : CameraModel | undefined
     entities : GameEntityModel[]    
     lights : BaseLightModel[]
-    camera : CameraModel[]
 }
 
 /**
  * tipo base para las entidades del juego (como luces, la camara, los objetos)
  */
-interface BaseEntityModel
+export interface BaseEntityModel
 {
     /**
      * @default transform identidad
@@ -19,12 +19,15 @@ interface BaseEntityModel
     transform : TransformModel | undefined
 }
 
-interface CameraModel extends BaseEntityModel
+export interface CameraModel extends BaseEntityModel
 {
-    
+    isOrthographyc : boolean;
+    near : number;
+    far : number;
+    fov : number;
 }
 
-interface BaseLightModel extends BaseEntityModel
+export interface BaseLightModel extends BaseEntityModel
 {   
     /**
      * el tipo de la luz
@@ -35,13 +38,13 @@ interface BaseLightModel extends BaseEntityModel
     type : string ;
 }
 
-interface SpotLightModel extends BaseLightModel
+export interface SpotLightModel extends BaseLightModel
 {
     angle : number;
     maxDistance : number;
 }
 
-interface GameEntityModel extends BaseEntityModel
+export interface GameEntityModel extends BaseEntityModel
 {
     /**
      * numero de la layer del objeto
@@ -72,7 +75,7 @@ interface GameEntityModel extends BaseEntityModel
     material : MaterialInfo | undefined
 }
 
-interface MaterialInfo
+export interface MaterialInfo
 {
     /**
      * nombre del material (tiene que corresponderse (ignoreCase) con un archivo .material listado en Materials)
@@ -82,22 +85,22 @@ interface MaterialInfo
     /**
      * una coleccion de uniforms del material
      */
-    uniforms : UniformSet | undefined
+    uniforms : UniformInfo[] | undefined
 
 }
 
 /**
- * abstrae el conjunto de uniforms
+ * abstrae el conjunto de uniforms, por ahora no lo vamos a usar
  * al abstraer de una lista, podemos 
  * mas adelante declarar un tipo estandard de material
  * como PBR o Unlit
  */
-interface UniformSet
+export interface UniformSet
 {
     uniforms : UniformInfo[]
 }
 
-interface UniformInfo
+export interface UniformInfo
 {
     /**
      * el nombre del uniform en el shader
@@ -119,14 +122,14 @@ interface UniformInfo
      * de momento solo son vectores de float lo que podemos llegar a necesitar
      * 
      * TODO: discutir un modo mas prolijo de manejar esto
-     * 
+     * @default si es undefined usar un 4 como default
      */
-    uniformType : string | number
+    uniformType : string | number | undefined
 }
 
 
 
-interface ScriptModel 
+export interface ScriptModel 
 {
     /**
      * la key para encontrar el script
@@ -136,7 +139,7 @@ interface ScriptModel
 }
 
 
-interface TransformModel
+export interface TransformModel
 {
     /**
      * @default [0,0,0]

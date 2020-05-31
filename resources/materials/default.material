@@ -6,5 +6,6 @@
     "projectionMatrixName" : "projectionMatrix",
     "vertexPositionName" : "vertexPosition",
     "normalMatrixName" : "normalMatrix",
-    "normalName" : "normal"
+    "normalName" : "normal",
+    "colorName" : "color",
 }
